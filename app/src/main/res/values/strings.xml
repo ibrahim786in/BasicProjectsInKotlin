@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">task1</string>
+    <string name="some_text">This is my practice App\n Please tell me if some more modifications are needed.\n Thank You..</string>
+    <string name="imageDesc">image</string>
+    <string name="textOnRecyc">Text</string>
+</resources>
