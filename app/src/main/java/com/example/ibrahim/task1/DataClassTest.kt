@@ -27,4 +27,5 @@ data class DataClassTest(var name: String = "Ibrahim", val age: Int = 23, val em
         }
     }
 
+
 }

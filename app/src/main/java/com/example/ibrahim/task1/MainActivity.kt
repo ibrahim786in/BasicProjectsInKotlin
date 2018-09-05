@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btn3.setOnClickListener {
-            val intent = Intent(this, RecycleView::class.java)
+            val intent = Intent(this, RecycleViewVertical::class.java)
 
             startActivity(intent)
         }

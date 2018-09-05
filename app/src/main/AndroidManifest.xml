@@ -19,11 +19,9 @@
         </activity>
         <activity android:name=".SimpleLayout" />
         <activity android:name=".ScrollView" />
-        <activity android:name=".RecycleView" />
+        <activity android:name=".RecycleViewVertical" />
         <activity android:name=".HorizonList" />
-        <activity android:name=".RamdomNoAct">
 
-        </activity>
     </application>
 
 </manifest>

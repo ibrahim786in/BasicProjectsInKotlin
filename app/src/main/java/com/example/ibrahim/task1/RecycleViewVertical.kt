@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_recycle_view.*
 
 
 
-class RecycleView : AppCompatActivity() {
+class RecycleViewVertical : AppCompatActivity() {
     val textList: ArrayList<DataModel> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +17,8 @@ class RecycleView : AppCompatActivity() {
         setContentView(R.layout.activity_recycle_view)
         addDataOnRecyc()
         recyclerView1.layoutManager = LinearLayoutManager(this)
-        val dividerItemDecoration = DividerItemDecoration(recyclerView1.getContext(),
-                (recyclerView1.layoutManager as LinearLayoutManager).getOrientation())
+        val dividerItemDecoration = DividerItemDecoration(recyclerView1.context,
+                (recyclerView1.layoutManager as LinearLayoutManager).orientation)
         recyclerView1.addItemDecoration(dividerItemDecoration)
         recyclerView1.adapter = AdapterItems(textList , this)
     }

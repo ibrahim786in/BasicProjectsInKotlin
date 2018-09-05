@@ -13,6 +13,7 @@ class SimpleLayout : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_layout)
         Log.d(obj, "onCreate")
+
         val person1=DataClassTest("Shafiq",23,"Shafiq@avantari")
         val person2=DataClassTest("Mirza",24)
         val person3= DataClassTest()
