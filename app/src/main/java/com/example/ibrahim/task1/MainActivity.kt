@@ -16,26 +16,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn1.setOnClickListener {
+        simpleLayout.setOnClickListener {
             val intent = Intent(this, SimpleLayout::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
-        btn2.setOnClickListener {
+        scrollViewTest.setOnClickListener {
             val intent = Intent(this, ScrollView::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
-        btn3.setOnClickListener {
+        recycleViewVertical.setOnClickListener {
             val intent = Intent(this, RecycleViewVertical::class.java)
 
             startActivity(intent)
         }
-        btn4.setOnClickListener {
+        recycleViewHorizontal.setOnClickListener {
             val intent = Intent(this, HorizonList::class.java)
             startActivity(intent)
         }
-        Toast.makeText(this, intent.getStringExtra("Simple_Act_Name"), Toast.LENGTH_SHORT).show()
+        dataParcelableTest.setOnClickListener {
+            val intent = Intent(this, DataParcelableTest::class.java)
+            startActivity(intent)
+        }
+
+        Toast.makeText(this, intent.getStringExtra("parcelTest"), Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onBackPressed() {
@@ -82,10 +88,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        Log.i("MainActivity","Is this method is going executed or not")
+        Log.i("MainActivity", "Is this method is going executed or not")
         if (newConfig?.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Toast.makeText(this, "orientation is landscape", Toast.LENGTH_SHORT).show()
-        } else if (newConfig?.orientation == Configuration.ORIENTATION_PORTRAIT){
+        } else if (newConfig?.orientation == Configuration.ORIENTATION_PORTRAIT) {
             Toast.makeText(this, "orientation is portrait", Toast.LENGTH_SHORT).show()
         }
     }

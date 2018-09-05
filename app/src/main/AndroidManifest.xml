@@ -13,15 +13,16 @@
             android:name=".MainActivity"
             android:configChanges="orientation">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SimpleLayout" />
         <activity android:name=".ScrollView" />
         <activity android:name=".RecycleViewVertical" />
         <activity android:name=".HorizonList" />
-
+        <activity android:name=".DataParcelableTest"></activity>
     </application>
 
 </manifest>

@@ -15,7 +15,7 @@ class SimpleLayout : AppCompatActivity() {
         Log.d(obj, "onCreate")
 
         val person1=DataClassTest("Shafiq",23,"Shafiq@avantari")
-        val person2=DataClassTest("Mirza",24)
+        val  person2=DataClassTest("Mirza",24)
         val person3= DataClassTest()
         val dubli1=person3.copy()
         val dubl2=person3.copy(age = 22)
