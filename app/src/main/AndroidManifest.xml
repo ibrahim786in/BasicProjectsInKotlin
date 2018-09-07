@@ -22,7 +22,7 @@
         <activity android:name=".ScrollView" />
         <activity android:name=".RecycleViewVertical" />
         <activity android:name=".HorizonList" />
-        <activity android:name=".DataParcelableTest"></activity>
+        <activity android:name=".DataParcelableTestData"></activity>
     </application>
 
 </manifest>

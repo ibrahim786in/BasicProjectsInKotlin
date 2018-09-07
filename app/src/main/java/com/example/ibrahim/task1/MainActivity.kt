@@ -5,6 +5,8 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,6 +17,24 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val simple = findViewById<Button>(R.id.simpleLayout)
+
+
+
+        sampleIV.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+
+            }
+        })
+
+        simpleLayout.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                val intent = Intent(this@MainActivity, SimpleLayout::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+            }
+        })
+
 
         simpleLayout.setOnClickListener {
             val intent = Intent(this, SimpleLayout::class.java)
@@ -36,11 +56,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         dataParcelableTest.setOnClickListener {
-            val intent = Intent(this, DataParcelableTest::class.java)
+            val intent = Intent(this, DataParcelableTestData::class.java)
             startActivity(intent)
         }
-
-        Toast.makeText(this, intent.getStringExtra("parcelTest"), Toast.LENGTH_SHORT).show()
+        val getParcelData: ParcelabeTestClass = intent.getParcelableExtra("parcelTest")
+           Toast.makeText(this, getParcelData.name+"\n"+getParcelData.email+"\n"+getParcelData.phone+"\n"+getParcelData.age, Toast.LENGTH_SHORT).show()
 
     }
 
