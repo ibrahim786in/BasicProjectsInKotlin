@@ -9,42 +9,74 @@ package com.example.ibrahim.task1;
 
 public class AbstractTestClass {
     public static void main(String args[]) {
-        TestClass testClass = new TestClass();
-        System.out.println("Parent Class object: "+testClass.Method1());
+//        ParentClass parentClassObj = new ParentClass();
+//        System.out.println("Parent Class object: " + parentClassObj.Method1());
 
-        TestClass aClass = new New1();
-        System.out.println(""+aClass.Method1());
+        ParentClass parentObj1 = new Child1();
+        System.out.println("\nUp-casting from Child1 : " + parentObj1.Method1());
+        System.out.println("Up-casting from Child1 : " + parentObj1.Method2());
+//System.out.println("Up-casting from Child1 : " + parentObj1.Method3());  /* U can't call Method3 using parentObj1 */
 
-        New1 a=new New1();
-        System.out.println("Child Class object: "+a.Method1());
+/*
+        Child1 c1 = new Child1();
+        System.out.println("\nChild Class object: " + c1.Method1());
 
-        TestClass test = a;
-        System.out.println("Upcasting"+test.Method1());
+        ParentClass upcastingTest1 = c1;
+        System.out.println("\nUp-casting-casting:  " + upcastingTest1.Method1());
+        System.out.println("\nUp-casting-casting:  " + upcastingTest1.Method2());
+*/
 
-        New1 new1 = (New1) aClass;
-        System.out.println("Upcasting"+new1.Method1());
+      /*  ParentClass downCatingTest1 = parentObj1;
+        System.out.println("\ndown-casting:  " + downCatingTest1.Method1());
+        System.out.println("\ndown-casting:  " + downCatingTest1.Method2());
+*/
+        Child1 Child1 = (Child1) parentObj1;
+        System.out.println("\nDown-casting :" + Child1.Method1());
+        System.out.println("Down-casting :" + Child1.Method2());
+        System.out.println("Down-casting :" + Child1.Method3());
+
+        ParentClass parentObj2 = new Child2();
+        System.out.println("\n Upcasting from Child 2 :" + parentObj2.Method1());
+        System.out.println("\n Upcasting from Child 2 :" + parentObj2.Method2());
+
+        Child2 Child2 = (Child2) parentObj2;
+        System.out.println("Down-casting :" + Child2.Method1());
+        System.out.println("Down-casting :" + Child2.Method2());
+
 
     }
 
 }
 
-class TestClass {
+class ParentClass {
     public String Method1() {
         System.out.println();
-        return "TestClass i.e Parent";
+        return "ParentClass Method1 call";
     }
 
     public String Method2() {
-        return null;
+        return "ParentClass Method2 call";
     }
 
 }
 
 
-class New1 extends TestClass {
+class Child1 extends ParentClass {
 
     public String Method1() {
-        return "New1 class i.e Child";
+        return "Child1 class Method1 call";
+    }
+
+    public String Method3() {
+        return "Child1 class Method3 call";
+    }
+
+}
+
+class Child2 extends ParentClass {
+
+    public String Method1() {
+        return "Child2 class Method1 call";
     }
 
 }
