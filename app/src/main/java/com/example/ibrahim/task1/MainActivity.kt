@@ -2,11 +2,11 @@ package com.example.ibrahim.task1
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,28 +17,23 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val simple = findViewById<Button>(R.id.simpleLayout)
 
-
-
-        sampleIV.setOnClickListener(object :View.OnClickListener{
-            override fun onClick(v: View?) {
-
-            }
-        })
-
-        simpleLayout.setOnClickListener(object :View.OnClickListener{
-            override fun onClick(v: View?) {
-                val intent = Intent(this@MainActivity, SimpleLayout::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(intent)
-            }
-        })
-
+        /*simpleLayout.setOnClickListener {
+            val intent = Intent(this@MainActivity, SimpleLayout::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }*/
 
         simpleLayout.setOnClickListener {
-            val intent = Intent(this, SimpleLayout::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+
+            //            createAlarm("First Alarm set",1,45)
+
+            val uri = Uri.parse("https://www.youtube.com")
+//
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+
+//            intent.action=Intent.ACTION_VIEW,uri
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
         scrollViewTest.setOnClickListener {
@@ -59,9 +54,32 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DataParcelableTestData::class.java)
             startActivity(intent)
         }
-        val getParcelData: ParcelabeTestClass = intent.getParcelableExtra("parcelTest")
-           Toast.makeText(this, getParcelData.name+"\n"+getParcelData.email+"\n"+getParcelData.phone+"\n"+getParcelData.age, Toast.LENGTH_SHORT).show()
+//        val getParcelData: ParcelabeTestClass = intent.getParcelableExtra("parcelTest")
+//           Toast.makeText(this, getParcelData.name+"\n"+getParcelData.email+"\n"+getParcelData.phone+"\n"+getParcelData.age, Toast.LENGTH_SHORT).show()
 
+    }
+
+    fun startTimer(message: String, seconds: Int) {
+        val intent = Intent(AlarmClock.ACTION_SET_TIMER)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+                .putExtra(AlarmClock.EXTRA_LENGTH, seconds)
+                .putExtra(AlarmClock.EXTRA_SKIP_UI, true)
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
+    }
+
+    private fun createAlarm(message: String, hour: Int, minutes: Int) {
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+
+                .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+                .putExtra(AlarmClock.EXTRA_HOUR, hour)
+                .putExtra(AlarmClock.EXTRA_MINUTES, minutes)
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
     override fun onBackPressed() {

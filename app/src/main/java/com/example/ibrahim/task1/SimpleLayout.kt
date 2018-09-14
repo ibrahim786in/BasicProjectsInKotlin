@@ -25,7 +25,7 @@ class SimpleLayout : AppCompatActivity() {
             intent.putExtra("Simple_Act_Name",first_name.text.toString())
             intent.putExtra("complete_object",person1)
 
-            intent.flags=Intent.FLAG_ACTIVITY_SINGLE_TOP
+//            intent.flags=Intent.FLAG_ACTIVITY_SINGLE_TOP
 //            intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
 
